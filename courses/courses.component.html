@@ -1,0 +1,71 @@
+<!-- Hero Section -->
+<section class="courses-hero">
+    <div class="container">
+      <h1 class="page-title">Explore Our Courses</h1>
+      <p class="page-subtitle">
+        Tailored yoga, meditation, and wellness programs to transform your life.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Category Filter Buttons -->
+  <section class="courses-filters">
+    <div class="container">
+      <div class="categories">
+        <button 
+          class="category-btn" 
+          [class.active]="activeCategory === 'All'" 
+          (click)="filterCourses('All')">
+          All
+        </button>
+  
+        <button 
+          *ngFor="let cat of categories" 
+          class="category-btn" 
+          [class.active]="activeCategory === cat.name" 
+          (click)="filterCourses(cat.name)">
+          {{ cat.name }}
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Courses Grid -->
+  <section class="courses-list">
+    <div class="container">
+      <div class="courses-grid">
+        <div *ngFor="let course of filteredCourses()" class="course-card">
+          <div class="course-image">
+            <img [src]="course.image" [alt]="course.title" />
+          </div>
+          <div class="course-content">
+            <h3 class="course-title">{{ course.title }}</h3>
+            <p class="course-description">{{ course.description }}</p>
+            <div class="course-category">
+              <span class="category-tag">{{ course.category }}</span> /
+              <span class="subcategory-tag">{{ course.subcategory }}</span>
+            </div>
+            <button class="enroll-btn">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Subcategories Section -->
+  <section class="courses-subcategories">
+    <div class="container">
+      <h2>Explore Subcategories</h2>
+      <div class="subcategory-lists">
+        <div *ngFor="let cat of categories" class="subcategory-block">
+          <h3>{{ cat.name }}</h3>
+          <ul>
+            <li *ngFor="let sub of cat.subcategories">
+              {{ sub }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  

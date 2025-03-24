@@ -1,0 +1,134 @@
+<div class="live-hero">
+  <h1>Live Sessions</h1>
+  <p>Join our transformative live yoga, meditation, and wellness experiences!</p>
+</div>
+
+<!-- Next Live Session Countdown -->
+<div class="countdown-container" *ngIf="nextSession">
+  <h2>Next Live Session Starting Soon!</h2>
+  <div class="countdown-card">
+    <img [src]="nextSession.image" alt="{{ nextSession.title }}">
+    <div class="countdown-details">
+      <h3>{{ nextSession.title }}</h3>
+      <p>{{ nextSession.description }}</p>
+      <p><strong>Instructor:</strong> {{ nextSession.instructor }}</p>
+      <p class="countdown-timer"><strong>Starts In:</strong> {{ countdown }}</p>
+      <button class="join-btn" (click)="joinSession(nextSession)">Join Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Live Sessions Highlight -->
+<section class="live-sessions-highlight">
+  <h2 class="highlight-heading">✨ Don’t Miss These Transformative Live Experiences! ✨</h2>
+  <p class="highlight-subtext">Empower your mind, body, and soul with our expert-led live sessions. Reserve your spot now and begin your wellness journey!</p>
+
+  <div class="live-sessions-container">
+
+    <!-- Live Session 1 -->
+    <div class="live-session-card">
+      <div class="live-badge pulse-animation">LIVE</div>
+      <img src="https://i.pinimg.com/736x/d8/ae/b3/d8aeb34a6284ecc1f5eca7ade410bf5e.jpg" alt="Morning Meditation">
+      
+      <div class="session-details">
+        <h3 class="session-title">🌅 Morning Meditation</h3>
+        <p class="session-description">Awaken your senses and cultivate calm to set a peaceful tone for the entire day. Ideal for beginners and experienced meditators alike.</p>
+
+        <div class="session-meta">
+          <p><strong>🗓 Date:</strong> Tomorrow</p>
+          <p><strong>⏰ Time:</strong> 6:00 AM - 7:00 AM (IST)</p>
+          <p><strong>👤 Instructor:</strong> Master Raj</p>
+        </div>
+
+        <button class="enroll-btn">Enroll Now & Reserve Your Spot</button>
+      </div>
+    </div>
+
+    <!-- Live Session 2 -->
+    <div class="live-session-card">
+      <div class="live-badge pulse-animation">LIVE</div>
+      <img src="https://i.pinimg.com/736x/25/c8/e9/25c8e9757a05f462127e6fa4b375802a.jpg" alt="Yoga Flow Bootcamp">
+      
+      <div class="session-details">
+        <h3 class="session-title">🧘‍♀️ Yoga Flow Bootcamp</h3>
+        <p class="session-description">Experience an energizing flow designed to enhance flexibility, build strength, and rejuvenate your body for an active day ahead.</p>
+
+        <div class="session-meta">
+          <p><strong>🗓 Date:</strong> Saturday</p>
+          <p><strong>⏰ Time:</strong> 7:00 AM - 8:00 AM (IST)</p>
+          <p><strong>👤 Instructor:</strong> Yogi Anjali</p>
+        </div>
+
+        <button class="enroll-btn">Join the Movement</button>
+      </div>
+    </div>
+
+    <!-- Live Session 3 -->
+    <div class="live-session-card">
+      <div class="live-badge pulse-animation">LIVE</div>
+      <img src="https://i.pinimg.com/736x/59/be/ad/59beadacf07d75594fbe56ee3e192349.jpg" alt="Satvik Food Workshop">
+      
+      <div class="session-details">
+        <h3 class="session-title">🥗 Satvik Food Workshop</h3>
+        <p class="session-description">Discover the ancient secrets of Satvik nutrition. Learn how mindful eating can detoxify your body and uplift your spirit for holistic health.</p>
+
+        <div class="session-meta">
+          <p><strong>🗓 Date:</strong> Sunday</p>
+          <p><strong>⏰ Time:</strong> 5:00 PM - 6:00 PM (IST)</p>
+          <p><strong>👤 Instructor:</strong> Chef Devika</p>
+        </div>
+
+        <button class="enroll-btn">Reserve My Seat Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Upcoming Sessions Grid -->
+<section class="upcoming-sessions">
+  <h2>Upcoming Live Sessions</h2>
+  <div class="session-grid">
+    <div class="session-card" *ngFor="let session of upcomingSessions">
+      <img [src]="session.image" alt="{{ session.title }}">
+      <div class="session-info">
+        <h3>{{ session.title }}</h3>
+        <p>{{ session.description }}</p>
+        <p><strong>Date:</strong> {{ session.date | date:'medium' }}</p>
+        <button (click)="joinSession(session)">Register</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Preview -->
+<section class="video-preview">
+  <h2>Live Session Preview</h2>
+  <video controls>
+    <source src="assets/videos/preview.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <h2>What Participants Say</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <p>"The live sessions keep me energized and grounded!"</p>
+      <strong>- Priya S.</strong>
+    </div>
+    <div class="testimonial-card">
+      <p>"A perfect way to end a hectic day. Highly recommended."</p>
+      <strong>- Ankit R.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-banner">
+  <h2>Ready to Transform Your Life?</h2>
+  <p>Join our community of wellness seekers and experience the magic of live yoga and meditation.</p>
+  <button (click)="joinSession(nextSession)">Join the Next Session</button>
+</section>

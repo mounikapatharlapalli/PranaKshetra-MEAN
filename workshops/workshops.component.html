@@ -1,0 +1,30 @@
+<section class="workshops-hero">
+    <div class="container">
+      <h1 class="page-title">Our Workshops</h1>
+      <p class="page-subtitle">
+        Transformative wellness programs tailored to your journey.
+      </p>
+    </div>
+  </section>
+  
+  <section class="workshops-list">
+    <div class="container">
+      <div class="workshops-grid">
+        <div *ngFor="let workshop of workshops" class="workshop-card">
+          <div class="workshop-image">
+            <img [src]="workshop.image" [alt]="workshop.title" />
+          </div>
+          <div class="workshop-content">
+            <h3 class="workshop-title">{{ workshop.title }}</h3>
+            <p class="workshop-description">{{ workshop.description }}</p>
+            <div class="workshop-meta">
+              <span class="workshop-date">{{ workshop.date }}</span> |
+              <span class="workshop-duration">{{ workshop.duration }}</span>
+            </div>
+            <button class="enroll-btn">View Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

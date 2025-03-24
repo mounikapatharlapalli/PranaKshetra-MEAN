@@ -1,0 +1,113 @@
+.contact-hero {
+    padding: 60px 0;
+    background-color: #fdf6f0;
+    text-align: center;
+  
+    .page-title {
+      font-size: 3rem;
+      color: #d9777f;
+      margin-bottom: 10px;
+    }
+  
+    .page-subtitle {
+      font-size: 1.2rem;
+      color: #7a7a7a;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+  
+  .contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding: 60px 20px;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+    .contact-form, .contact-details {
+      background-color: #fdf6f0;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+  
+    h2 {
+      color: #d9777f;
+      margin-bottom: 20px;
+    }
+  
+    .form-group {
+      margin-bottom: 20px;
+  
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 600;
+      }
+  
+      input, textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          border-color: #d9777f;
+        }
+      }
+  
+      textarea {
+        resize: vertical;
+      }
+    }
+  
+    .btn-submit {
+      display: inline-block;
+      background-color: #d9777f;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #bf5f68;
+      }
+    }
+  
+    .contact-details p {
+      margin-bottom: 15px;
+      color: #555;
+  
+      strong {
+        color: #333;
+      }
+    }
+  
+    .map-container {
+      margin-top: 20px;
+  
+      iframe {
+        border-radius: 16px;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-hero .page-title {
+      font-size: 2.2rem;
+    }
+  
+    .contact-hero .page-subtitle {
+      font-size: 1rem;
+    }
+  }
+  

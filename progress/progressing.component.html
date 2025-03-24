@@ -1,0 +1,98 @@
+<div class="progress-container">
+
+    <!-- Course Progress Timeline -->
+    <section class="course-progress-timeline">
+      <h2>Course Progress</h2>
+  
+      <!-- Progress Line Wrapper -->
+      <div class="progress-line-container">
+        <div class="progress-line">
+          <div
+            *ngFor="let stage of courseProgressTimeline; let i = index"
+            class="progress-step"
+            [ngClass]="{
+              'completed': i < currentStageIndex,
+              'current': i === currentStageIndex
+            }"
+          >
+            <div class="step-circle">{{ i + 1 }}</div>
+            <div class="step-label">{{ stage.name }}</div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Navigation Buttons -->
+      <div class="progress-buttons">
+        <button
+          class="nav-button"
+          (click)="goBack()"
+          [disabled]="currentStageIndex === 0"
+        >
+          <i class="pi pi-angle-left"></i> Back
+        </button>
+        <button
+          class="nav-button"
+          (click)="goNext()"
+          [disabled]="currentStageIndex === courseProgressTimeline.length - 1"
+        >
+          Next <i class="pi pi-angle-right"></i>
+        </button>
+      </div>
+    </section>
+  
+    <!-- Diet Progress Section -->
+    <section class="progress-section">
+      <h2>Diet Progress</h2>
+      <p-progressBar
+        [value]="dietProgress"
+        [showValue]="true">
+      </p-progressBar>
+    </section>
+  
+    <!-- Embedded YouTube Video -->
+    <section class="video-section">
+      <h2>Session Video</h2>
+      <div class="video-container">
+        <iframe
+          [src]="youtubeVideoUrl"
+          frameborder="0"
+          allowfullscreen
+          title="Session Video">
+        </iframe>
+      </div>
+    </section>
+  
+    <!-- Yoga Sessions List -->
+    <section class="sessions-section">
+      <h2>Yoga Sessions</h2>
+      <div *ngFor="let session of yogaSessions" class="session-card">
+        <h3>{{ session.title }}</h3>
+        <button pButton
+          [label]="session.completed ? 'Completed' : 'Start Now'"
+          [disabled]="session.completed"
+          class="session-button">
+        </button>
+      </div>
+    </section>
+  
+    <!-- Yoga Philosophies -->
+    <section class="philosophy-section">
+      <h2>Yoga Philosophy</h2>
+      <ul>
+        <li *ngFor="let philosophy of philosophies">
+          {{ philosophy }}
+        </li>
+      </ul>
+    </section>
+  
+    <!-- Diet Plan Cards -->
+    <section class="diet-section">
+      <h2>Diet Plan</h2>
+      <div class="diet-card" *ngFor="let diet of dietPlan">
+        <h3>{{ diet.meal }}</h3>
+        <p>{{ diet.menu }}</p>
+      </div>
+    </section>
+  
+  </div>
+  

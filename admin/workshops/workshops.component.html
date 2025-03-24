@@ -1,0 +1,32 @@
+<div class="container">
+    <h1 class="text-xl font-bold mb-4">Workshops Management</h1>
+  
+    <button (click)="addWorkshop()" class="bg-green-500 text-white px-4 py-2 rounded mb-4">
+      + Add Workshop
+    </button>
+  
+    <table class="min-w-full bg-white rounded shadow">
+      <thead>
+        <tr>
+          <th class="px-4 py-2">Title</th>
+          <th class="px-4 py-2">Date</th>
+          <th class="px-4 py-2">Trainer</th>
+          <th class="px-4 py-2">Price</th>
+          <th class="px-4 py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let workshop of workshops" class="border-t">
+          <td class="px-4 py-2">{{ workshop.title }}</td>
+          <td class="px-4 py-2">{{ workshop.date | date }}</td>
+          <td class="px-4 py-2">{{ workshop.trainer?.name }}</td>
+          <td class="px-4 py-2">{{ workshop.price | currency }}</td>
+          <td class="px-4 py-2">
+            <button (click)="editWorkshop(workshop._id)" class="text-blue-500 mr-2">Edit</button>
+            <button (click)="deleteWorkshop(workshop._id)" class="text-red-500">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

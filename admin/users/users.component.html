@@ -1,0 +1,45 @@
+<div class="users-container p-4">
+    <h2 class="text-2xl font-semibold mb-4">Users Management</h2>
+  
+    <!-- Loading and error handling -->
+    <div *ngIf="loading" class="text-gray-500">Loading users...</div>
+    <div *ngIf="error" class="text-red-500">{{ error }}</div>
+  
+    <!-- Users table -->
+    <div *ngIf="!loading && users.length > 0">
+      <table class="min-w-full table-auto border-collapse border border-gray-200">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border border-gray-200 px-4 py-2 text-left">#</th>
+            <th class="border border-gray-200 px-4 py-2 text-left">Name</th>
+            <th class="border border-gray-200 px-4 py-2 text-left">Email</th>
+            <th class="border border-gray-200 px-4 py-2 text-left">Role</th>
+            <th class="border border-gray-200 px-4 py-2 text-left">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; index as i">
+            <td class="border border-gray-200 px-4 py-2">{{ i + 1 }}</td>
+            <td class="border border-gray-200 px-4 py-2">{{ user.name }}</td>
+            <td class="border border-gray-200 px-4 py-2">{{ user.email }}</td>
+            <td class="border border-gray-200 px-4 py-2 capitalize">{{ user.role }}</td>
+            <td class="border border-gray-200 px-4 py-2">
+              <!-- Delete button -->
+              <button
+                (click)="deleteUser(user._id)"
+                class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded">
+                Delete
+              </button>
+              <!-- Future: Edit button -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- No users found -->
+    <div *ngIf="!loading && users.length === 0" class="text-gray-500">
+      No users found.
+    </div>
+  </div>
+  
