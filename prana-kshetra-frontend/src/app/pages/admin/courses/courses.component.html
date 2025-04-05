@@ -1,0 +1,60 @@
+<div class="courses-container">
+    <h2>Courses List</h2>
+  
+    <div class="actions">
+      <button class="btn btn-primary" [routerLink]="['/admin/courses/add']">
+        ➕ Add New Course
+      </button>
+    </div>
+  
+    <div *ngIf="loading" class="loading">Loading courses...</div>
+  
+    <table *ngIf="!loading && courses.length" class="courses-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Instructor</th>
+          <th>Price</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td>{{ course.title }}</td>
+          <td>{{ course.category }}</td>
+          <td>{{ course.instructor }}</td>
+          <td>₹{{ course.price }}</td>
+          <td>
+            <span
+              [ngClass]="{
+                active: course.status === 'Active',
+                inactive: course.status !== 'Active'
+              }"
+            >
+              {{ course.status }}
+            </span>
+          </td>
+          <td>
+            <button class="btn btn-edit" (click)="editCourse(course)">
+              ✏️ Edit
+            </button>
+            <button
+  class="btn btn-delete"
+  *ngIf="course._id"
+  (click)="deleteCourse(course._id)">
+  🗑️ Delete
+</button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!loading && !courses.length" class="no-courses">
+      No courses found.
+    </div>
+  </div>
+  

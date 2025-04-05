@@ -1,0 +1,106 @@
+<div class="user-dashboard-container">
+    <!-- Side Navigation -->
+    <aside class="sidebar">
+      <div class="profile-section">
+        <div class="avatar">M</div>
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.email }}</p>
+        <p>{{ user.phone }}</p>
+      </div>
+  
+      <nav class="sidebar-nav">
+        <ul>
+          <li (click)="navigate('dashboard')" [class.active]="currentTab === 'dashboard'">
+            Dashboard
+          </li>
+          <li (click)="navigate('courses')" [class.active]="currentTab === 'courses'">
+            My Courses
+          </li>
+          <li (click)="navigate('wishlist')" [class.active]="currentTab === 'wishlist'">
+            Wishlist
+          </li>
+          <li (click)="navigate('settings')" [class.active]="currentTab === 'settings'">
+            Settings
+          </li>
+          <li class="logout">Logout</li>
+        </ul>
+      </nav>
+    </aside>
+  
+    <!-- Main Content -->
+    <main class="main-content">
+  
+      <!-- Dashboard -->
+      <section *ngIf="currentTab === 'dashboard'">
+        <h3>Welcome, {{ user.name }}</h3>
+  
+        <div class="overview-cards">
+          <div class="card">
+            <h4>Total Courses</h4>
+            <p>1</p>
+          </div>
+  
+          <div class="card">
+            <h4>Wishlist</h4>
+            <p>2</p>
+          </div>
+        </div>
+  
+        <div class="course-progress">
+          <h4>{{ course.name }}</h4>
+  
+          <div class="progress-bar-container">
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                [style.width.%]="course.progressPercentage"
+              ></div>
+            </div>
+            <p>{{ course.progressPercentage }}% Completed ({{ course.completedDays }} / {{ course.totalDays }} Days)</p>
+          </div>
+  
+          <button class="continue-btn">Continue Course</button>
+        </div>
+      </section>
+  
+      <!-- Courses -->
+      <section *ngIf="currentTab === 'courses'">
+        <h3>My Courses</h3>
+        <div class="course-item">
+          <h4>{{ course.name }}</h4>
+          <p>Progress: {{ course.progressPercentage }}%</p>
+          <button class="continue-btn">Continue</button>
+        </div>
+      </section>
+  
+      <!-- Wishlist -->
+      <section *ngIf="currentTab === 'wishlist'">
+        <h3>My Wishlist</h3>
+        <p>You have 2 items in your wishlist.</p>
+  
+        <div class="wishlist-cards">
+          <!-- Wishlist Card 1 -->
+          <div class="wishlist-card">
+            <h3>Yoga for Beginners</h3>
+            <p>A complete course to kickstart your yoga journey.</p>
+            <button class="enroll-btn">Enroll Now</button>
+          </div>
+  
+          <!-- Wishlist Card 2 -->
+          <div class="wishlist-card">
+            <h3>Advanced Meditation Techniques</h3>
+            <p>Deepen your practice with guided meditations.</p>
+            <button class="enroll-btn">Enroll Now</button>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Settings -->
+      <section *ngIf="currentTab === 'settings'">
+        <h3>Account Settings</h3>
+        <p>Edit your personal information here.</p>
+      </section>
+  
+    </main>
+  </div>
+  

@@ -1,0 +1,43 @@
+<nav class="navbar">
+  <div class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <h1>Prana Kshetra</h1>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links" [class.open]="isMenuOpen" id="navLinks">
+      <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/courses" routerLinkActive="active" (click)="closeMenu()">Courses</a></li>
+      <li><a routerLink="/workshops" routerLinkActive="active" (click)="closeMenu()">Workshops</a></li>
+      <li><a routerLink="/live" routerLinkActive="active" (click)="closeMenu()">Live</a></li>
+      <li><a routerLink="/aboutus" routerLinkActive="active" (click)="closeMenu()">About</a></li>
+      <li><a routerLink="/blogs" routerLinkActive="active" (click)="closeMenu()">Blogs</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+    </ul>
+
+    <!-- Auth Buttons -->
+    <div class="auth-buttons">
+      <!-- Show Login/Register when NOT logged in -->
+      <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
+        <a routerLink="/login" class="btn" (click)="closeMenu()">Login</a>
+        <a routerLink="/register" class="btn btn-primary" (click)="closeMenu()">Register</a>
+      </ng-container>
+
+      <!-- Show Greeting + Logout when logged in -->
+      <ng-template #loggedInTemplate>
+        <span class="greeting">Hello {{ username }}</span>
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+      </ng-template>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger" (click)="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </div>
+</nav>

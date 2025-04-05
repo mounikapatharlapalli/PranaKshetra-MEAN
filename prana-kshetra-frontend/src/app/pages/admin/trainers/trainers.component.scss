@@ -1,0 +1,71 @@
+.admin-container {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #e91e63; // Soft pink accent
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #e91e63;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #d81b60;
+}
+
+.btn-edit {
+  background-color: #ffb6c1;
+  border: none;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+}
+
+.btn-edit:hover {
+  background-color: #ff69b4;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    padding: 1rem;
+    background-color: #f8bbd0;
+    color: #333;
+  }
+
+  td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  tr:hover {
+    background-color: #fce4ec;
+  }
+}
